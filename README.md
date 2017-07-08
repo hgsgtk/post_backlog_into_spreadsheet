@@ -52,16 +52,61 @@ google spreadsheetの「条件付き書式」で制御
 [Backlog API公式リファレンス](https://developer.nulab-inc.com/ja/docs/backlog/)
 
 ## 使用例
+
 '''
 https://{space name}.backlog.jp/api/v2/issues?apiKey={API AccessKey}&projectId%5B%5D={project id}
 '''
 
-# Google Spreadsheet API仕様
-- jsonファイルの整形
-```
+## 中継処理
+### Backlogから取得したjsonをgoogle spreadsheetに書き込むためのjsonに整形する
+
+### jsonファイルをHASH変換
 
 ```
-- jsonの書き込み
+File.open('backlog_issues.json') do |file|
+  hash = JSON.load(file)
+  p hash
+end
+```
+
+取り出した結果
+```
+[{"id"=>2489264, "projectId"=>55351, "issueKey"=>"xxx", "keyId"=>41, "issueType"=>{"id"=>251087, "projectId"=>55351, "name"=>"タスク", "color"=>"#7ea800", "displayOrder"=>0}, "summary"=>"xxx", "description"=>"xxx", "resolution"=>nil, "priority"=>{"id"=>3, "name"=>"中"}, "status"=>{"id"=>1, "name"=>"未対応"}, "assignee"=>{"id"=>122253, "userId"=>"xxx", "name"=>"xxx", "roleType"=>2, "lang"=>nil, "mailAddress"=>"xxx", "nulabAccount"=>nil}, "category"=>[], "versions"=>[], "milestone"=>[], "startDate"=>nil, "dueDate"=>"2017-07-21T00:00:00Z", "estimatedHours"=>nil, "actualHours"=>nil, "parentIssueId"=>nil, "createdUser"=>{"id"=>42269, "userId"=>"xxx", "name"=>"xxx", "roleType"=>1, "lang"=>"ja", "mailAddress"=>"xxx", "nulabAccount"=>nil}, "created"=>"2017-07-06T10:40:22Z", "updatedUser"=>{"id"=>42269, "userId"=>"xxx", "name"=>"xxx", "roleType"=>1, "lang"=>"ja", "mailAddress"=>"xxx", "nulabAccount"=>nil}, "updated"=>"2017-07-06T10:40:22Z", "customFields"=>[{"id"=>26992, "fieldTypeId"=>5, "name"=>"領域", "value"=>nil}], "attachments"=>[{"id"=>1209615, "name"=>"xxx", "size"=>47247, "createdUser"=>{"id"=>42269, "userId"=>"xxx", "name"=>"xxx", "roleType"=>1, "lang"=>"ja", "mailAddress"=>"xxx", "nulabAccount"=>nil}, "created"=>"2017-07-06T10:40:22Z"}], "sharedFiles"=>[], "stars"=>[]}
+```
+###
+
+### jsonの書き込み
+
+```
+## HASHをJSONファイルに書き出す
+def output_json_from_hash(output_hash)
+  output_json = JSON.generate(output_hash)
+  puts output_json
+end
+```
+
+# 参考情報
+## Spreadsheet API v4仕様
+### 公式リファレンス
+
+### API URI
+* Base URL https://sheets.googleapis.com/v4/spreadsheets
+
+* Update URI
+https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchUpdate
+
+### 書き込む
+
+### 枠線を入れる
+
+## 初回実行時に実行（phase1対象外）
+* ファイルの作成
+* 条件付き書式を入れる
+
 ```
 https://sheets.googleapis.com/v4/spreadsheets/1bxJfPp09tBBYm0tjLWzy0MgInzWw_W1wtzwyEf8CTqM:batchUpdate
 ```
+
+## 参考URL
+* [Googleスプレッドシートをプログラムから操作](http://qiita.com/howdy39/items/ca719537bba676dce1cf)
+* [Google Sheets > API v4](https://developers.google.com/sheets/api/reference/rest/)

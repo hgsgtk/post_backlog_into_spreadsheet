@@ -1,4 +1,14 @@
+#! ruby
 require 'json'
+require 'google/apis/sheets_v4'
+require 'googleauth'
+require 'googleauth/stores/file_token_store'
+
+require 'fileutils'
+
+## 起動
+
+## BacklogのIssue検索
 
 ## JSONファイルをHASHへ変換する
 def convert_json_to_hash(file_name)
@@ -9,8 +19,15 @@ def convert_json_to_hash(file_name)
 end
   # HASH->JSON
 
-  ## str = JSON.generate({:hello => "good bye"})
-  puts @converted_hash.to_json
+## HASHをJSONファイルに書き出す
+def output_json_from_hash(output_hash)
+  output_json = JSON.generate(output_hash)
+  puts output_json
 end
 
-convert_json_to_hash('backlog_issues.json')
+## google spreadsheet API形式のHASHに変換
+def shaping_hash(input_hash)
+
+end
+
+##
