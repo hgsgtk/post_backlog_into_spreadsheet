@@ -53,9 +53,9 @@ google spreadsheetの「条件付き書式」で制御
 
 ## 使用例
 
-'''
+```
 https://{space name}.backlog.jp/api/v2/issues?apiKey={API AccessKey}&projectId%5B%5D={project id}
-'''
+```
 
 ## 中継処理
 ### Backlogから取得したjsonをgoogle spreadsheetに書き込むためのjsonに整形する
@@ -104,7 +104,7 @@ https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchUpdate
 * 条件付き書式を入れる
 
 ```
-https://sheets.googleapis.com/v4/spreadsheets/1bxJfPp09tBBYm0tjLWzy0MgInzWw_W1wtzwyEf8CTqM:batchUpdate
+https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}:batchUpdate
 ```
 
 ## 参考URL
