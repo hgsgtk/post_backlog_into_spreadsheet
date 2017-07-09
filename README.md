@@ -42,6 +42,13 @@
 案2：lambdaを仲介するAPIとする。　
 ※json整形と取得するjsonファイルサイズによって検討
 
+## BacklogAPIから課題一覧の取得処理
+
+- 認証
+OAuth2認可フレームワーク(RFC 6749)で定められた認可コードによる認可(Authorization Code Grant)を使用してAPIにアクセス  
+  * [Backlog Developer Site](https://www.backlog.jp/developer/applications/)
+
+
 ## 表示制御
 google spreadsheetの「条件付き書式」で制御
 

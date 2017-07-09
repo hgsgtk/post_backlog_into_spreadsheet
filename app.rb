@@ -9,6 +9,25 @@ require 'fileutils'
 ## 起動
 
 ## BacklogのIssue検索
+def get_backlog_issues
+  # BASE URI
+  space_name = ''
+  base_uri = "https://#{space_name}.backlog.jp/"
+
+  # API接続認証
+  auth_base_uri = "/OAuth2AccessRequest.action?"
+  auth_parameter = ""
+  apiKey = ""
+  auth_uri = base_uri + auth_base_uri + auth_parameter + apiKey
+  puts auth_uri
+  if
+
+  # Issue検索条件の指定
+
+  # APIを呼び出しIssueを検索、取得する
+end
+
+get_backlog_issues()
 
 ## JSONファイルをHASHへ変換する
 def convert_json_to_hash(file_name)
