@@ -116,4 +116,6 @@ https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}:batchUpdate
 
 ## 参考URL
 * [Googleスプレッドシートをプログラムから操作](http://qiita.com/howdy39/items/ca719537bba676dce1cf)
+* [Backlog API公式リファレンス](https://developer.nulab-inc.com/ja/docs/backlog/auth/)
 * [Google Sheets > API v4](https://developers.google.com/sheets/api/reference/rest/)
+* [RubyでAPI叩く](http://qiita.com/mogulla3/items/a4bff2e569dfa7da1896)
